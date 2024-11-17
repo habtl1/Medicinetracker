@@ -27,7 +27,7 @@ public class HomeController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user, Model model) {
         try {
-            userData.registerUser(user);
+            User.registerUser(user);
             model.addAttribute("message", "Registration successful!");
             return "login"; // Redirect to login page after registration
         } catch (Exception e) {
