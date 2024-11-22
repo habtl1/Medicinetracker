@@ -1,6 +1,6 @@
 package org.launchcode.medicineTracker_spring.controllers;
 
-import org.launchcode.medicineTracker_spring.User;
+import org.launchcode.medicineTracker_spring.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,7 +27,7 @@ public class HomeController {
     @PostMapping("/register")
     public String registerUser(@ModelAttribute User user, Model model) {
         try {
-            User.registerUser(user);
+            registerUser(user, model);
             model.addAttribute("message", "Registration successful!");
             return "login"; // Redirect to login page after registration
         } catch (Exception e) {
